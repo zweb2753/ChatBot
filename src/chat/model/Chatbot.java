@@ -20,11 +20,11 @@ public class Chatbot
 	
 	public Chatbot(String username)
 	{
-		this.movieList = 
+		this.movieList = null;
 		this.shoppingList = new ArrayList<String>();
 		this.cuteAnimalMemes = new ArrayList<String>();
 		this.currentTime = null;
-		this.questions = null;
+		this.questions = new String [10];
 		this.username = username;
 		this.content = null;
 		this.intro = null;
