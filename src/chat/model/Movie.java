@@ -63,10 +63,14 @@ public class Movie
 
 	public void setTitle(String title)
 	{
+		this.title = "spiderman";
+		this.title = "Hidden Figures";
 	}
 
 	public void setGenre(String genre)
 	{
+		this.genre = "Documentary";
+		this.genre = "Thriller";
 	}
 
 	public void setRatingMPAA(String ratingMPAA)
