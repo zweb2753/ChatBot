@@ -32,7 +32,7 @@ public class Chatbot
 		this.topics = new String [7];
 		this.verbs = new String [4];
 		this.followUps = new String [5];
-		
+
 		buildVerbs();
 		buildShoppingList();
 		buildTopics();
@@ -65,10 +65,25 @@ public class Chatbot
 	
 	private void buildCuteAnimals()
 	{
-		cuteAnimals.add("floofer");
+		cuteAnimalMemes.add("floofer");
+		cuteAnimalMemes.add("Kittie");
+	    cuteAnimalMemes.add("Otter");
 	}
 	
 	private void buildQuestions()
+	{
+		questions[0] = "What is your name?";
+		questions[1] = "Whats your favorite color?";
+	    questions[2] = "Whats your favorite sport?";
+	    questions[3] = "Whats your favorite movie?";
+	    questions[4] = "Whats your favorite animal?";
+	    questions[5] = "Whats your favorite class?";
+	    questions[6] = "Whats your favorite store?";
+	    questions[7] = "Whats your favorite type of music to listen too?";
+	    questions[8] = "How old are you?";
+	    questions[9] = "What country do you live in?";
+	    		
+	}
 	
 	public String processConversation(String input)
 	{
@@ -95,11 +110,7 @@ public class Chatbot
 		
 		return response;
 	}
-	public String processConversation(String input)
-	{
-		return null;
-	}
-	
+		
 	public boolean lengthChecker(String input)
 	{
 		boolean validLength = false;
@@ -133,9 +144,13 @@ public class Chatbot
 	
 	public boolean shoppingListChecker(String shoppingItem)
 	{
-		return false;
+		if (shoppingItem.contains("protein") || shoppingItem.contains("veggies") || shoppingItem.contains("snacks")
+				|| shoppingItem.contains("donuts") || shoppingItem.contains("fruits"));
+		{
+			return true;
+		}
+		
 	}
-	
 	public boolean movieTitleChecker(String title)
 	{
 		return false;
@@ -148,6 +163,10 @@ public class Chatbot
 
 	public boolean quitChecker(String exitString)
 	{
+		if (exitString.equalsIgnoreCase("quit"))
+		{
+			return true;
+		}
 		return false;
 	}
 
@@ -173,7 +192,7 @@ public class Chatbot
 
 	public String [] getQuestions()
 	{
-		return null;
+		return questions;
 	}
 	
 	public String[] getVerbs()

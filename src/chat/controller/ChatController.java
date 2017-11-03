@@ -9,7 +9,7 @@ public class ChatController
 	
 	public ChatbotController()
 	{
-		chatbot  new Chatbot("Zane Weber");
+		chatbot = new Chatbot("Zane Weber");
 		display = new PopupDisplay();
 	}
 	
@@ -19,13 +19,28 @@ public class ChatController
 		
 		while (Chatbot.lengthChecker(response) && !chatbot.quitChecker(response))
 		{
-			response = popupChat(response;)
+			response = popupChat(response);
+			response = display.collectResponse(response);
 		}
 	}
 	
 	public String interactWitChatbot(String input)
 	
-	private String popupChat(String chat) {
-		return null;
+	private String popupChat(String chat) 
+	{
+		String chatbotSays = "";
+		
+		chatbotSays += chatbot.processConversation(chat);
+		
+		return chatbotSays;
 	}
+	public Chatbot getChatbot()
+	
+	public PopupDisplay getDisplay()
+	
+	public ChatFrame getChatFrame()
+	
+	
+	
+	
 }
