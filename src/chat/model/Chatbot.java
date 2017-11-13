@@ -69,7 +69,9 @@ public class Chatbot
 		cuteAnimalMemes.add("Kittie");
 	    cuteAnimalMemes.add("Otter");
 	}
-	
+	/**
+	 * list of questions
+	 */
 	private void buildQuestions()
 	{
 		questions[0] = "What is your name?";
@@ -93,7 +95,10 @@ public class Chatbot
 		
 		return chatbotResponse;
 	}
-	
+	/**
+	 * takes the usr inpit and processes it as a string
+	 * @return
+	 */
 	private String buildChatbotResponse()
 	{
 		String response = "I ";
@@ -110,7 +115,11 @@ public class Chatbot
 		
 		return response;
 	}
-		
+	/**
+	 * checks the lengh t omake sure its not null and greater than 2	
+	 * @param input
+	 * @return
+	 */
 	public boolean lengthChecker(String input)
 	{
 		boolean validLength = false;
