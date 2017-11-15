@@ -2,6 +2,7 @@ package chat.controller;
 
 import chat.model.Chatbot;
 
+
 public class ChatController 
 {
 	private Chatbot chatbot;
@@ -19,11 +20,11 @@ public class ChatController
 	{
 		String response = display.collectResponse("What do you want to talk about?");
 		
-		while (Chatbot.lengthChecker(response) && !chatbot.quitChecker(response))
-		{
-			response = popupChat(response);
-			response = display.collectResponse(response);
-		}
+		//while (Chatbot.lengthChecker(response) && !chatbot.quitChecker(response))
+		//{
+		//	response = popupChat(response);
+		//	response = display.collectResponse(response);
+		//}
 	}
 	
 	public String interactWithChatbot(String input)
