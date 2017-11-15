@@ -40,6 +40,16 @@ public class Chatbot
 		buildQuestions();
 	}
 
+	private void buildTopics()
+	{
+		
+	}
+	
+	private void buildFollowUps()
+	{
+		
+	}
+	
 	private void buildVerbs()
 	{
 		verbs[0] = "like";

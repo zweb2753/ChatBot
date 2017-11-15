@@ -1,18 +1,19 @@
 package chat.controller;
 
 import chat.model.Chatbot;
-
+import chat.view.ChatDisplay;
+import chat.view.ChatFrame;
 
 public class ChatController 
 {
 	private Chatbot chatbot;
-	private PopupDisplay display;
+	private ChatDisplay display;
 	private ChatFrame appFrame;
 	
-	public ChatbotController()
+	public ChatController()
 	{
 		chatbot = new Chatbot("Zane Weber");
-		display = new PopupDisplay();
+		display = new ChatDisplay();
 		appFrame = new ChatFrame(this);
 	}
 	
@@ -29,7 +30,7 @@ public class ChatController
 	
 	public String interactWithChatbot(String input)
 	{
-		
+		return null;
 	}
 	
 	private String popupChat(String chat) 
@@ -41,12 +42,6 @@ public class ChatController
 		
 		return chatbotSays;
 	}
-	public Chatbot getChatbot()
-	
-	public PopupDisplay getDisplay()
-	
-	public ChatFrame getChatFrame()
-	
 	
 	
 	
