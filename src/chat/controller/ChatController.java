@@ -6,11 +6,13 @@ public class ChatController
 {
 	private Chatbot chatbot;
 	private PopupDisplay display;
+	private ChatFrame appFrame;
 	
 	public ChatbotController()
 	{
 		chatbot = new Chatbot("Zane Weber");
 		display = new PopupDisplay();
+		appFrame = new ChatFrame(this);
 	}
 	
 	public void start()

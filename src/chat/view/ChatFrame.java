@@ -13,6 +13,7 @@ public class ChatFrame extends JFrame
 		super();
 		this.appController = appController;
 		//appPanel = new ChatPanel(appController);
+		setupFrame();
 	}
 	
 	private void setupFrame() 
