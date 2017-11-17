@@ -2,7 +2,11 @@ package chat.view;
 
 import chat.controller.ChatController;
 import javax.swing.JFrame;
-
+/**
+ * sets up the frame
+ * @author zweb2753
+ *
+ */
 public class ChatFrame extends JFrame
 {
 	private ChatController appController;
@@ -15,7 +19,9 @@ public class ChatFrame extends JFrame
 		appPanel = new ChatPanel(appController);
 		setupFrame();
 	}
-	
+	/**
+	 * all the details and specs of the frame
+	 */
 	private void setupFrame() 
 	{
 		this.setResizable(false);

@@ -9,14 +9,18 @@ public class ChatController
 	private Chatbot chatbot;
 	private ChatDisplay display;
 	private ChatFrame appFrame;
-	
+	/**
+	 * assigns values
+	 */
 	public ChatController()
 	{
 		chatbot = new Chatbot("Zane Weber");
 		display = new ChatDisplay();
 		appFrame = new ChatFrame(this);
 	}
-	
+	/**
+	 * gets the response and displays the message
+	 */
 	public void start()
 	{
 		String response = display.collectResponse("What do you want to talk about?");
