@@ -23,18 +23,27 @@ public class ChatController
 	 */
 	public void start()
 	{
-		String response = display.collectResponse("What do you want to talk about?");
-		
-		//while (Chatbot.lengthChecker(response) && !chatbot.quitChecker(response))
-		//{
-		//	response = popupChat(response);
-		//	response = display.collectResponse(response);
-		//}
+		display.displayText("Welcome to chatbot");
 	}
 	
 	public String interactWithChatbot(String input)
 	{
-		return null;
+		String chatbotSays = "";
+		
+		if(chatbot.quitChecker(input))
+		{
+			
+		}
+		
+		chatbotSays += chatbot.processConversation(input);
+		
+		return chatbotSays;
+	}
+	
+	private void close()
+	{
+		display.displayText("goodbye");
+		System.exit(0);
 	}
 	
 	private String popupChat(String chat) 
