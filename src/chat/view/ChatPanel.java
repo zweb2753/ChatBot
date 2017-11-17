@@ -7,23 +7,23 @@ import javax.swing.JButton;
 import javax.swing.JTextField;
 import javax.swing.JTextArea;
 import javax.swing.SpringLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import chat.controller.ChatController;
 
-public class ChatPanel extends JPanel
-{
+public class ChatPanel extends JPanel {
 	private ChatController appController;
 	private JButton chatButton;
 	private JTextField inputField;
 	private JTextArea chatArea;
 	private SpringLayout appLayout;
-	
-	public ChatPanel(ChatController appController)
-	{
+
+	public ChatPanel(ChatController appController) {
 		super();
 		this.appController = appController;
-		
-		//initialize GUI data members
+
+		// initialize GUI data members
 		chatButton = new JButton("chat");
 		chatArea = new JTextArea(10, 25);
 		inputField = new JTextField(20);
@@ -33,29 +33,36 @@ public class ChatPanel extends JPanel
 		appLayout.putConstraint(SpringLayout.NORTH, inputField, 174, SpringLayout.NORTH, this);
 		appLayout.putConstraint(SpringLayout.WEST, inputField, 34, SpringLayout.WEST, this);
 		appLayout.putConstraint(SpringLayout.SOUTH, inputField, -39, SpringLayout.SOUTH, this);
-		
-		
+
 		setupPanel();
 		setupLayout();
 		setupListeners();
 	}
-	
-	private void setupPanel()
-	{
+
+	private void setupPanel() {
 		this.setBackground(Color.CYAN);
 		this.setLayout(appLayout);
 		this.add(inputField);
 		this.add(chatArea);
+		chatArea.setEnabled(false);
+		chatArea.setEditable(false);
 	}
-	
-	private void setupLayout()
+
+	private void setupLayout() {
+
+	}
+
+	private void setupListeners() 
 	{
-		
+		chatButton.addActionListener(new ActionListener() 
+		{
+			public void actionPerformed(ActionEvent click) 
+			{
+				String userText = inputField.getText();
+				String displayText = appController.interactWithChatbot(userText);
+				chatArea.append(displayText);
+				inputField.setText("");
+			}
+		});
 	}
-	
-	private void setupListeners()
-	{
-		
-	}
-	
 }
