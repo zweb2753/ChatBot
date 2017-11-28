@@ -19,16 +19,19 @@ public class ChatPanel extends JPanel {
 	private JTextField inputField;
 	private JTextArea chatArea;
 	private SpringLayout appLayout;
+	private JLabel infoLabel;
 
 	public ChatPanel(ChatController appController) {
 		super();
 		this.appController = appController;
 
 		// initialize GUI data members
+		infoLabel = new JLabel("Type to chat with the chatbot");
 		chatButton = new JButton("chat");
 		chatArea = new JTextArea(10, 25);
 		inputField = new JTextField(20);
 		appLayout = new SpringLayout();
+		
 		appLayout.putConstraint(SpringLayout.NORTH, chatArea, 20, SpringLayout.NORTH, this);
 		appLayout.putConstraint(SpringLayout.WEST, chatArea, -25, SpringLayout.EAST, this);
 		appLayout.putConstraint(SpringLayout.NORTH, inputField, 174, SpringLayout.NORTH, this);
@@ -41,6 +44,7 @@ public class ChatPanel extends JPanel {
 	}
 
 	private void setupPanel() {
+		this.add(infoLabel);
 		this.setBackground(Color.CYAN);
 		this.setLayout(appLayout);
 		this.add(inputField);
