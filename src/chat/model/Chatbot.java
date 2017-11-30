@@ -162,9 +162,34 @@ public class Chatbot
 	
 	public boolean htmlTagChecker(String input)
 	{
-		return false;
+		boolean containshtml = false;
+		if (input == null || !input.contains("<"))
+		{
+			return containshtml;
+		}
+	int firstOpen = input.indexOf("<");
+	int firstClose = input.indexOf(">",firstOpen);
+	int secondOpen = -9;
+	int secondClose = -9;
+	String tagText = "";
+	
+	
+	if (input.contains("<>") || input.indexOf("< >") > -1)
+	{
+		
+		containshtml = false;
 	}
 	
+	if (input.toUpperCase().contains("<P>") || input.toLowerCase().contains("<br>"))
+	{
+		containshtml = true;
+	}
+	
+	else if (firstClose > firstOpen)
+	{
+		
+	}
+
 	public boolean userNameChecker(String input)
 	{
 		return false;
