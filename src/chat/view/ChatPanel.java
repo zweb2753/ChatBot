@@ -35,27 +35,35 @@ public class ChatPanel extends JPanel
 		chatArea = new JTextArea(10, 25);
 		inputField = new JTextField(20);
 		appLayout = new SpringLayout();
+		chatScrollPane = new JScrollPane();
 
 		setupPanel();
 		setupLayout();
 		setupListeners();
+		setupScrollPane();
 	}
 
+	private void setupScrollPane()
+	{
+		chatScrollPane.setViewportView(chatArea);
+		chatScrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+		chatScrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
+	}
 	private void setupPanel() 
 	{
 		this.add(infoLabel);
 		this.setBackground(Color.CYAN);
 		this.setLayout(appLayout);
 		this.add(inputField);
-		this.add(chatArea);
+		this.add(chatScrollPane);
 		chatArea.setEnabled(false);
 		chatArea.setEditable(false);
 	}
 
 	private void setupLayout() 
 	{
-		appLayout.putConstraint(SpringLayout.NORTH, chatArea, 20, SpringLayout.NORTH, this);
-		appLayout.putConstraint(SpringLayout.WEST, chatArea, -25, SpringLayout.EAST, this);
+		appLayout.putConstraint(SpringLayout.NORTH, chatScrollPane, 20, SpringLayout.NORTH, this);
+		appLayout.putConstraint(SpringLayout.WEST, chatScrollPane, -25, SpringLayout.EAST, this);
 		appLayout.putConstraint(SpringLayout.NORTH, inputField, 174, SpringLayout.NORTH, this);
 		appLayout.putConstraint(SpringLayout.WEST, inputField, 34, SpringLayout.WEST, this);
 		appLayout.putConstraint(SpringLayout.SOUTH, inputField, -39, SpringLayout.SOUTH, this);
