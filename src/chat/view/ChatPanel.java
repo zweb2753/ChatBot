@@ -9,6 +9,7 @@ import javax.swing.JTextArea;
 import javax.swing.SpringLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.JScrollPane;
 
 import chat.controller.ChatController;
 
@@ -21,6 +22,7 @@ public class ChatPanel extends JPanel
 	private JTextArea chatArea;
 	private SpringLayout appLayout;
 	private JLabel infoLabel;
+	private JScrollPane chatScrollPane;
 
 	public ChatPanel(ChatController appController) 
 	{
