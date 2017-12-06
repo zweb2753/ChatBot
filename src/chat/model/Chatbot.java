@@ -23,7 +23,7 @@ public class Chatbot
 		this.movieList = new ArrayList<Movie>();
 		this.shoppingList = new ArrayList<String>();
 		this.cuteAnimalMemes = new ArrayList<String>();
-		this.currentTime = null;
+		this.currentTime = LocalTime.now();
 		this.questions = new String [10];
 		this.username = username;
 		this.content = null;
@@ -101,6 +101,7 @@ public class Chatbot
 	public String processConversation(String input)
 	{
 		String chatbotResponse = "";
+		chatbotResponse += currentTime.getHour() + ":" + currentTime.getMinute() + " ";
 		chatbotResponse += "You said:" + "\n" + input + "\n";
 		chatbotResponse += buildChatbotResponse();
 		
@@ -185,8 +186,8 @@ public class Chatbot
 		containshtml = true;
 	}
 	
-	else if (firstClose > firstOpen)
-	{
+//	else if (firstClose > firstOpen)
+//	{
 		
 	}
 
