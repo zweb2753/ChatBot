@@ -28,7 +28,7 @@ public class ChatPanel extends JPanel
 	{
 		super();
 		this.appController = appController;
-		chatButton = new JButton("chat");
+		chatButton =  new JButton("chat");
 		inputField = new JTextField(20);
 		appLayout = new SpringLayout();
 		appLayout.putConstraint(SpringLayout.WEST, chatButton, 6, SpringLayout.EAST, inputField);

@@ -108,7 +108,7 @@ public class Chatbot
 		return chatbotResponse;
 	}
 	/**
-	 * takes the usr inpit and processes it as a string
+	 * takes the user input and processes it as a string
 	 * @return
 	 */
 	private String buildChatbotResponse()
@@ -168,6 +168,7 @@ public class Chatbot
 		{
 			return containshtml;
 		}
+	
 	int firstOpen = input.indexOf("<");
 	int firstClose = input.indexOf(">",firstOpen);
 	int secondOpen = -9;
@@ -177,7 +178,6 @@ public class Chatbot
 	
 	if (input.contains("<>") || input.indexOf("< >") > -1)
 	{
-		
 		containshtml = false;
 	}
 	
