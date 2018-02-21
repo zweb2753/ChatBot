@@ -122,7 +122,7 @@ public class ChatPanel extends JPanel
 			}
 		});
 		
-		searchButton.addActionListener(new actionListener()
+		searchButton.addActionListener(new ActionListener()
 		{
 			public void actionPerformed(ActionEvent click)
 			{
@@ -130,15 +130,15 @@ public class ChatPanel extends JPanel
 			}
 		});
 		
-		tweetButton_1.addActionListener(new actionListener()
+		tweetButton.addActionListener(new ActionListener()
 		{
 			public void actionPerformed(ActionEvent click)
 			{
-				
+				appController.tweet(inputField.getText());
 			}
 		});
 		
-		saveButton.addActionListener(new actionListener()
+		saveButton.addActionListener(new ActionListener()
 		{
 			public void actionPerformed(ActionEvent click)
 			{
@@ -146,7 +146,7 @@ public class ChatPanel extends JPanel
 			}
 		});
 				
-		loadButton_1.addActionListener(new actionListener()
+		loadButton_1.addActionListener(new ActionListener()
 		{
 			public void actionPerformed(ActionEvent click)
 			{

@@ -1,20 +1,23 @@
 package chat.controller;
 
+import chat.model.CTECTwitter;
 import chat.model.Chatbot;
 import chat.view.ChatDisplay;
 import chat.view.ChatFrame;
-
+import chat.model.Chatbot;
 public class ChatController 
 {
 	private Chatbot chatbot;
 	private ChatDisplay display;
 	private ChatFrame appFrame;
+	private CTECTwitter myTwitter;
 	/**
 	 * assigns values
 	 */
 	public ChatController()
 	{
 		chatbot = new Chatbot("Zane Weber");
+		myTwitter = new CTECTwitter(this);
 		display = new ChatDisplay();
 		appFrame = new ChatFrame(this);
 	}
@@ -76,4 +79,8 @@ public class ChatController
 		display.displayText(error.getMessage());
 	}
 	
+	public void tweet(String text)
+	{
+		myTwitter.sendTweet(text);
+	}
 }
