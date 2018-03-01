@@ -83,4 +83,12 @@ public class ChatController
 	{
 		myTwitter.sendTweet(text);
 	}
+	
+	public PopupDisplay getDisplay()
+	{
+		return display;
+	}
+	
+	public 
+	}
 }
