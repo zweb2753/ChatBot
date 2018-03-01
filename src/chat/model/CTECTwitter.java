@@ -9,16 +9,26 @@ import twitter4j.Status;
 import twitter4j.ResponseList;
 import twitter4j.Paging;
 import twitter4j.QueryResult;
-import twitter4j.
+import twitter4j.Query;
+import twitter4j.Paging;
+import twitter4j.GeoLocation;
+import java.util.Scanner;
+import java.util.List;
+import java.util.ArrayList;
+import java.text.DecimalFormat;
 
 public class CTECTwitter 
 {
 	private ChatController appController;
 	private Twitter chatbotTwitter;
+	private List<Status> searchedTweets;
+	private List<String> tweetedWords;
 	
 	public CTECTwitter(ChatController appController)
 	{
 		this.appController = appController;
+		this.searchedTweets = new ArrayList<Status>();
+		this.tweetedWords = new ArrayList<String>();
 		this.chatbotTwitter = TwitterFactory.getSingleton();
 		
 	}

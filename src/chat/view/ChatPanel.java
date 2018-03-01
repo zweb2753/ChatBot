@@ -119,6 +119,16 @@ public class ChatPanel extends JPanel
 				String displayText = appController.interactWithChatbot(userText);
 				chatArea.append(displayText);
 				inputField.setText("");
+		});
+		
+		checkerButton.addActionListener(new ActionListener()
+				{
+			public void actionPerformed(ActionEvent click) 
+			{
+				String userText = inputField.getText();
+				String displayText = appController.interactWithChatbot(userText);
+				chatArea.append(displayText);
+				inputField.setText("");
 			}
 		});
 		
