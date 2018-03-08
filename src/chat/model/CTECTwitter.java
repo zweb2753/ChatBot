@@ -119,6 +119,7 @@ public class CTECTwitter
 		for(Status currentStatus : searchedTweets)
 		{
 			String tweetText = currentStatus.getText();
+			tweetText = tweetText.replace("\n", " ");
 			String [] tweetWords = tweetText.split(" ");
 			for(int index = 0; index < tweetWords.length; index++)
 			{
@@ -155,7 +156,7 @@ public class CTECTwitter
 	private String removePunctuation(String currentString)
 	{
 		String punctuation = ".,'?!:;\"() {}^[]<>-";
-		
+		String newLine = "\n";
 		String scrubbedString = "";
 		for (int i = 0; i < currentString.length(); i++)
 		{
