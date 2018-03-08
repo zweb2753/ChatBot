@@ -1,7 +1,6 @@
 package chat.model;
 
 import chat.controller.ChatController;
-
 import twitter4j.TwitterException;
 import twitter4j.TwitterFactory;
 import twitter4j.Twitter;
@@ -16,6 +15,7 @@ import java.util.Scanner;
 import java.util.List;
 import java.util.ArrayList;
 import java.text.DecimalFormat;
+import java.util.HashMap;
 
 public class CTECTwitter 
 {
@@ -24,12 +24,14 @@ public class CTECTwitter
 	private List<Status> searchedTweets;
 	private List<String> tweetedWords;
 	private long totalWordCount;
+	private HashMap<String, Integer> wordsAndCount;
 	
 	public CTECTwitter(ChatController appController)
 	{
 		this.appController = appController;
 		this.searchedTweets = new ArrayList<Status>();
 		this.tweetedWords = new ArrayList<String>();
+		this.wordsAndCount = new HashMap<String, Integer>();
 		this.chatbotTwitter = TwitterFactory.getSingleton();
 		this.totalWordCount = 0;
 		
@@ -52,7 +54,7 @@ public class CTECTwitter
 		}
 	}
 	
-	public String getMostCommonTweets(String username)
+	public String getMostCommonWord(String username)
 	{
 		String mostCommon = "";
 		
@@ -60,8 +62,24 @@ public class CTECTwitter
 		turnStatusesToWords();
 		totalWordCount = tweetedWords.size();
 		String [] boring = createIgnoreWordArray();
+		trimTheBoringWords(boring);
 	
 		return mostCommon;
+	}
+	
+	private void trimTheBoringWords(String [] boringWords)
+	{
+		for (int index = tweetedWords.size() - 1; index >= 0; index--)
+		{
+			for (int boringIndex = 0; boringIndex < boringWords.length; boringIndex++))
+			{
+				if (tweetedWords.get(index).equals(boringWords[boringIndex]))
+				{
+					tweetedWords.remove(index);
+					boringIndex = Integer.MAX_VALUE;
+				}
+			}
+		}
 	}
 	
 	private void collectTweets(String username)
