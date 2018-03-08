@@ -127,6 +127,17 @@ public class CTECTwitter
 		}
 	}
 	
+	private void removeBlanks()
+	{
+		for (int index = tweetedWords.size() - 1; index >= 0; index--)
+		{
+			if (tweetedWords.get(index).trim().length() == 0)
+			{
+				tweetedWords.remove(index);
+			}
+		}
+	}
+	
 	private String removePunctuation(String currentString)
 	{
 		String punctuation = ".,'?!:;\"() {}^[]<>-";
