@@ -12,7 +12,9 @@ import twitter4j.Query;
 import twitter4j.Paging;
 import twitter4j.GeoLocation;
 import java.util.Scanner;
+import java.util.stream.Collectors;
 import java.util.List;
+import java.util.Map;
 import java.util.ArrayList;
 import java.text.DecimalFormat;
 import java.util.HashMap;
@@ -63,7 +65,15 @@ public class CTECTwitter
 		totalWordCount = tweetedWords.size();
 		String [] boring = createIgnoreWordArray();
 		trimTheBoringWords(boring);
+		
+		int maxWord = 0;
+		
+		HashTable<String, Integer> topOne =
+				wordsAndCount.entrySet().stream()
+				.sorted(Map.Entry.comparingByValue()).collect(imit(1).collectt(Collectors.toMap
+					Map.Entry :: getKey,  Map.Entry :: getValue, (e1, e2 -> e1, Hashtable :: new));
 	
+				String mostCommonWord = topOne
 		return mostCommon;
 	}
 	
