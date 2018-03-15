@@ -66,14 +66,23 @@ public class CTECTwitter
 		String [] boring = createIgnoreWordArray();
 		trimTheBoringWords(boring);
 		
+		ArrayList>Map.Entry<String, Integer, V>> sorted = sortHashMap();
+		
+		String mostCommomWord = sorted.get(0).getKey();
+		
 		int maxWord = 0;
 		
-		HashTable<String, Integer> topOne =
-				wordsAndCount.entrySet().stream()
-				.sorted(Map.Entry.comparingByValue()).collect(imit(1).collectt(Collectors.toMap
-					Map.Entry :: getKey,  Map.Entry :: getValue, (e1, e2 -> e1, Hashtable :: new));
-	
-				String mostCommonWord = topOne
+		maxWord = sorted.get(0).getValue();
+		
+		mostCommon = "the most common word in " + username + "'s"+ searchedTweets.size()+ " tweets is " +
+		mostCommonWord + ", and it was used " + maxWord + " times.\nThis is " +
+		(DecimalFormat.getPercentInstance().format(((double) maxWord)/totalWordCount)) +
+		" of total words; " + totalWordCount + " and is " +
+		(DecimalFormat.getPercentInstance().format(((double) maxWord)/wordsAndCount.size())) +
+		" of the unique words: " + wordsAndCount.size();
+		
+		mostCommon += "\n\n" + sortedWords();
+		
 		return mostCommon;
 	}
 	
@@ -205,5 +214,39 @@ public class CTECTwitter
 		return boringWords;
 		
 	}
+	
+	private ArrayList<Map.Entry<String, Integer>> entries = new ArrayList<Map.Entry<String, Integer>>(wordsAndCount.entrySet());
+	entries.sort((entry1, entry2) -> entry2.getValue().compareTo(entry1.getvalue()));
+	
+	return entries;
 }
 
+private String sortedWords()
+{
+	String allWords = "";
+	String[] words = new String [wordsAndCount.size()];
+	ArrayList<String> wordList = new ArrayList<String>(wordsAndCount.keySet());
+	for(int index = 0; index < wordsAndCount.size(); index++)
+	{
+		words[index] = wordList.get(index);
+	}
+		for (int inner = index + 1; inner < words.length; inner++)
+		{
+			if (words[inner].compareTo(words[maxIndex]) > 0)
+			{
+				maxIndex = inner;
+			}
+		}
+		
+		String tempMax = words[maxIndex];
+		words[maxIndex] = words[index];
+		words[index] = tempMax;
+	}
+	
+	for (String word : words)
+	{
+		allWords += word + ",";
+	}
+	
+	return allWords;
+}
